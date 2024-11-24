@@ -7,3 +7,5 @@ celery
 redis
 uvicorn
 alembic
+python-dotenv
+python-decouple

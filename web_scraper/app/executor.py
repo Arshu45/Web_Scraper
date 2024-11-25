@@ -8,7 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 import logging
 from app.celery import celery_app
 
-# Configure logger
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ def execute_task():
 
         for site in sites:
             url = f"https://{site}/ads.txt"
-            logger.info(f"Fetching ads.txt from: {url}")  # Log each request
+            logger.info(f"Fetching ads.txt from: {url}")  
             try:
                 response = requests.get(url, timeout=10)
                 response.raise_for_status()
@@ -93,7 +93,7 @@ def cleanup_old_data():
     
     session = SessionLocal()
     try:
-        # Calculate the cutoff datetime
+        
         cutoff_time = datetime.now() - timedelta(hours=24)
 
         # Delete old records from the legitimate_sellers table

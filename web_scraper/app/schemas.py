@@ -29,7 +29,7 @@ class LegitimateSellerResponse(BaseModel):
         from_attributes = True  
 
 
-# Add this for parsing ads.txt entries
+# this function is for parsing ads.txt entries
 class AdsTxtEntry(BaseModel):
     ssp_domain_name: str
     publisher_id: str

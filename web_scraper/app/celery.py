@@ -22,7 +22,7 @@ celery_app.conf.beat_schedule = {
 }
 
 
-# Additional Celery Configurations
+# Celery Configurations
 celery_app.conf.update(
     # timezone='UTC',
     # enable_utc=True,

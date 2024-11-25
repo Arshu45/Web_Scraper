@@ -3,17 +3,16 @@ from uuid import uuid4
 from app.database import SessionLocal
 from app.models import Task
 import logging
-from app.celery import celery_app  # Import the centralized Celery app
+from app.celery import celery_app
 
-# Configure logger
+# congiguring logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-@celery_app.task  # Use the imported Celery app
+# This function Schedules a daily task by adding an entry in the `tasks` table with the status 'SCHEDULED'.
+@celery_app.task 
 def schedule_daily_task():
-    """
-    Schedules a daily task by adding an entry in the `tasks` table with the status 'SCHEDULED'.
-    """
+    
     session = SessionLocal()
     try:
         run_id = str(uuid4())
